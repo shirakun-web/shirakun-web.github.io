@@ -21,7 +21,7 @@
 		 */
         function requestData() {
             $.ajax({
-                url: 'http://185.22.154.182/tools/nginx_status',
+                url: 'https://caf5cd1238128ba6f36bfd02e49a1e55.phper.ga/tools/nginx_status',
                 success: function (point) {
                     point = point.split('\n')[0];
                     point = parseInt(point.split(' ')[2]);
