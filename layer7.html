@@ -8,7 +8,7 @@
     <meta name="keywords" content="online,live,dstat,graph,Layer7 Dstat Akamai
 ">
     <meta name="author" content="kagurazaka shira">
-    <title>Layer7 Request Status - しら
+    <title>Layer7 Dstat - しら
     </title>
     <script type="text/javascript" src="js/jquery-1.10.2.min.js"></script>
     <script type="text/javascript" src="js/highcharts.js"></script>
@@ -16,13 +16,13 @@
     <script>
         var chart; // global
         var pointx = null;
-		/**
-		 * Request data from the server, add it to the graph and set a timeout to request again
-		 */
+        /**
+         * Request data from the server, add it to the graph and set a timeout to request again
+         */
         function requestData() {
             $.ajax({
                 url: 'https://caf5cd1238128ba6f36bfd02e49a1e55.phper.ga/tools/nginx_status',
-                success: function (point) {
+                success: function(point) {
                     point = point.split('\n')[0];
                     point = parseInt(point.split(' ')[2]);
                     console.log(point);
@@ -36,7 +36,7 @@
             });
         }
 
-        $(document).ready(function () {
+        $(document).ready(function() {
             chart = new Highcharts.Chart({
                 chart: {
                     zoomType: 'x',
@@ -47,7 +47,7 @@
                     }
                 },
                 title: {
-                    text: '>> Layer7 Request Status <<'
+                    text: '>> Layer7 Dstat <<'
                 },
                 subtitle: {
                     text: 'Server:185.22.154.182'
@@ -108,10 +108,16 @@
 
         Highcharts.theme = {
             colors: ['#2b908f', '#90ee7e', '#f45b5b', '#7798BF', '#aaeeee', '#ff0066', '#eeaaee',
-                '#55BF3B', '#DF5353', '#7798BF', '#aaeeee'],
+                '#55BF3B', '#DF5353', '#7798BF', '#aaeeee'
+            ],
             chart: {
                 backgroundColor: {
-                    linearGradient: { x1: 0, y1: 0, x2: 1, y2: 1 },
+                    linearGradient: {
+                        x1: 0,
+                        y1: 0,
+                        x2: 1,
+                        y2: 1
+                    },
                     stops: [
                         [0, '#2a2a2b'],
                         [1, '#3e3e40']
